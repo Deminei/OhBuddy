@@ -1,38 +1,26 @@
-// setting up local storage
-let postManager = (function () {
-    let posts = [];
+// Retrieve data from local storage
+const data = JSON.parse(localStorage.getItem('myData'));
 
-    function addPost(post) {
-        posts.push(post);
-        localStorage.setItem('posts', JSON.stringify(posts)); //stores post in localStorage
-        displayPosts(); //call to update the list when a new post is added
-    }
+// Loop through the data and create a new card element for each object
+data.forEach((item) => {
+  // Create a new card element
+  const card = document.createElement('div');
+  card.classList.add('card', 'right');
+  card.style.width = '18rem';
 
-    function displayPosts() {
-        let postList = document.getElementById("postList"); //gets the ??? element
-        postList.innerHTML = ""; //clear the existing list
+  // Set the inner HTML of the card element
+  card.innerHTML = `
+    <div class="card-body">
+      <h5 class="card-title">${item.title}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">${item.subtitle}</h6>
+      <p class="card-text">${item.content}</p>
+      <label for="">Tags</label>
+      <span class="tags">${item.tags.join(', ')}</span>
+      <a href="#" class="card-link">Update</a>
+      <a href="#" class="card-link">Delete</a>
+    </div>
+  `;
 
-        for (let i = 0; i < posts.length; i++) {
-            let postItem = document.createElement("???"); //creates a new ??? element
-            postItem.textContent = posts[i]; //sets the text content to the post
-            postItem.addEventListener("click", function () { //click event listener to remove post when clicked??????
-                posts.splice(i, 1); //removes the post from the posts array
-                displayPosts(); //call to update the list after post is removed
-                localStorage.setItem('posts', JSON.stringify(posts)); //stores updated posts array in local storage
-
-            });
-            postList.appendChild(postItem); //appends the ??? item to the ???
-            console.log(postItem.textContent);
-        }
-    }
-
-    //loads posts from local storage if available
-    let storedPosts = JSON.parse(localStorage.getItem('posts')) || [];
-    posts = storedPosts;
-    displayPosts(); //displays posts from local storage
-
-    return {
-        addPost: addPost,
-        displayPosts: displayPosts
-    };
-})();
+  // Append the card element to the post list
+  document.querySelector('.post-list').appendChild(card);
+});
