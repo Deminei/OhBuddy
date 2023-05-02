@@ -12,6 +12,7 @@ deletePostButtons.forEach(function(button) {
 });
 
 function deletePostById(posts, id) {
+
     let postFound = false;
     for (let i = 0; i < posts.length; i++) {
       if (posts[i].id === id) {
@@ -26,6 +27,7 @@ function deletePostById(posts, id) {
   }
   
   const posts = JSON.parse(localStorage.getItem('posts'));
+
 
 try {
   deletePostById(posts, 123); // Delete post with id 123
