@@ -1,5 +1,5 @@
 
- const deletePostButtons = document.querySelectorAll('#delete-btn');
+ const deletePostButtons = document.querySelectorAll('.delete-btn');
 
 // add event listener to each delete button
 deletePostButtons.forEach(function(button) {
