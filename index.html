@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,16 +16,11 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!--  -->
-    <!--  -->
-    <!-- WORK BELOW HERE -->
-
-    <!-- NAV BAR -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
       <a class="navbar-brand" href="index.html">
         <!-- Insert logo image here -->
-        TECHNOMANCERS</a
-      >
+        TECHNOMANCERS
+      </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -43,111 +37,105 @@
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item active">
             <a class="nav-link" href="index.html"
-              >Home <span class="sr-only"></span
-            ></a>
+              >Home <span class="sr-only">(current)</span></a
+            >
           </li>
         </ul>
-      </div>
-      <div>
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0" style="margin-left: 5px;">
           <input
             class="form-control mr-sm-2 search-input"
             type="search"
             placeholder="Search"
+            aria-label="Search"
           />
-          <button class="btn btn-outline-primary my-2 my-sm-0 clear-btn" type="submit">
-            Clear
+          <button
+            class="btn btn-outline-primary my-2 my-sm-0 clear-btn"
+            type="submit"
+          >
+            Search
           </button>
-
-      </form>
-    </div>
-  </nav>
-
-  <!-- END OF NAVBAR -->
-
-  <!-- BODY -->
-
-  <!-- container -->
-  <div class="container">
-    <!-- form to create -->
-    <div class="card left" style="width: 18rem">
-      <div class="card-body">
-        <form id="form" name="form">
-          <h3>Create Post:</h3>
-          <p id="message"></p>
-          <label>Username:</label>
-          <input id="name" placeholder="Name" type="text" /><br />
-
-          <br />
-
-          <label>Post:</label>
-          <textarea id="message-area" placeholder="Your thoughts here :"></textarea>
-          <br />
-          <label for="tags">Tags:</label>
-          <input id="tags" placeholder="" type="text" />
-          <input id="submit" type="button" value="Send It!" />
-
         </form>
       </div>
-    </div>
-
-    <!-- post feed -->
-    <div class="post-list" id="posts-container">
-      <!-- POST SAMPLE -->
-      <div class="card right" style="width: 18rem">
+    </nav>
+    <!--  -->
+    <!--  -->
+    <!-- WORK BELOW HERE -->
+    <!-- MAIN -->
+    <!-- container -->
+    <div class="container">
+      <!-- form to create -->
+      <div class="card left" style="width: 18rem">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <label for="">Tags</label>
-          <span class="tags"></span>
-          <a href="#" class="card-link">Update</a>
-          <a href="#" class="card-link">Delete</a>
+          <form id="form" name="form">
+            <h3>Create Post:</h3>
+            <p id="message"></p>
+            <label>Username:</label>
+            <input id="name" placeholder="Name" type="text" /><br />
+
+            <br />
+
+            <label>Post:</label>
+            <textarea
+              id="message-area"
+              placeholder="Your thoughts here :"
+            ></textarea>
+            <br />
+            <label for="tags">Tags:</label>
+            <input id="tags" placeholder="" type="text" />
+            <input id="submit" type="button" value="Send It!" />
+          </form>
         </div>
       </div>
-      <!-- END OF POST SAMPLE -->
+
+      <!-- post feed -->
+      <div class="post-list" id="posts-container">
+        <!-- POST SAMPLE -->
+        <div class="card right" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <label for="">Tags</label>
+            <span class="tags"></span>
+            <a href="#" class="card-link">Update</a>
+            <a href="#" class="card-link">Delete</a>
+          </div>
+        </div>
+        <!-- END OF POST SAMPLE -->
+      </div>
     </div>
-  </div>
 
+    <!-- END OF MAIN -->
+    <!-- Footer -->
+    <footer>
+      <!-- Grid container -->
+      <div class="container pt-2">
+        <!-- Section: Social media -->
+        <section class="mb-2"></section>
+        <!-- Section: Social media -->
+      </div>
 
-
-
-
-
-
-
-
-
-  <!-- END OF BODY -->
-  <!-- Footer -->
-  <footer class="text-center text-light fixed-bottom" style="background-color: #eae0d5">
-    <!-- Grid container -->
-    <div class="container pt-2">
-      <!-- Section: Social media -->
-      <section class="mb-2"></section>
-      <!-- Section: Social media -->
-    </div>
-
-    <!-- Copyright -->
-    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-      TECHNOMANCERS © 2020 Copyright:
-      <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
-
-  <!-- WORK ABOVE HERE -->
-  <!--  -->
-  <!--  -->
-  <!-- JavaScript -->
-  <script src="mikal.js"></script>
-  <script src="stephen.js"></script>
-  <script src="emily.js"></script>
-  <script src="chitra.js"></script>
-  <script src="shatt.js"></script>
-</body>
-
+      <!-- Copyright -->
+      <div
+        class="text-center text-dark p-3"
+        style="background-color: rgba(0, 0, 0, 0.2)"
+      >
+        TECHNOMANCERS © 2020 Copyright:
+        <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- WORK ABOVE HERE -->
+    <!--  -->
+    <!--  -->
+    <!-- JavaScript -->
+    <script src="mikal.js"></script>
+    <script src="stephen.js"></script>
+    <script src="emily.js"></script>
+    <script src="chitra.js"></script>
+    <script src="shatt.js"></script>
+  </body>
 </html>
