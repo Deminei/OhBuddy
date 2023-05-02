@@ -5,10 +5,12 @@ function generatePostHtml(post) {
           <h5 class="card-title">${post.name}</h5>
           <h6 class="card-subtitle mb-2 text-muted">${post.date}</h6>
           <p class="card-text">${post.post}</p>
-          <label for="">Tags</label>
+          <label for="">Tags: </label>
           <span class="tags">${post.tags}</span>
-          <a href="#" class="card-link">Update</a>
-          <a href="#" class="card-link">Delete</a>
+          <div>
+              <a href="#" class="card-link">Update</a>
+            <a href="#" class="card-link" id="delete-btn">Delete</a>
+            </div>
         </div>
       </div>
     `;
