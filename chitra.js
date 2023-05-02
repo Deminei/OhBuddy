@@ -12,20 +12,22 @@ deletePostButtons.forEach(function(button) {
 });
 
 function deletePostById(posts, id) {
-  let postFound = false;
-  for (let i = 0; i < posts.length; i++) {
-    if (posts[i].id === id) {
-      posts.splice(i, 1); // Remove the post from the array
-      postFound = true;
-      break;
+
+    let postFound = false;
+    for (let i = 0; i < posts.length; i++) {
+      if (posts[i].id === id) {
+        posts.splice(i, 1); // Remove the post from the array
+        postFound = true;
+        break;
+      }
+    }
+    if (!postFound) {
+      throw new Error(`Post with id ${id} not found`);
     }
   }
-  if (!postFound) {
-    throw new Error(`Post with id ${id} not found`);
-  }
-}
+  
+  const posts = JSON.parse(localStorage.getItem('posts'));
 
-const posts = JSON.parse(localStorage.getItem('posts'));
 
 try {
   deletePostById(posts, 123); // Delete post with id 123
