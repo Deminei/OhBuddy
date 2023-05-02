@@ -1,39 +1,36 @@
 
- const deletePostButtons = document.querySelectorAll('.delete-btn');
+const deletePostButtons = document.querySelectorAll('.delete-btn');
 
 // add event listener to each delete button
-deletePostButtons.forEach(function(button) {
-  button.addEventListener('click', function() {
+deletePostButtons.forEach(function (button, index) {
+  const posts = JSON.parse(localStorage.getItem('posts'));
+  button.addEventListener('click', function () {
     // get the post element that contains the delete button
     const post = button.parentElement.parentElement.parentElement;
-    console.log(post)
+    const postId = post.id
+
     // remove the post element from the DOM
     post.remove();
+    deletePostById(posts, postId)
   });
 });
 
 
 function deletePostById(posts, id) {
-
-    let postFound = false;
-    for (let i = 0; i < posts.length; i++) {
-      if (posts[i].id === id) {
-        posts.splice(i, 1); // Remove the post from the array
-        postFound = true;
-        break;
-      }
-    }
-    if (!postFound) {
-      throw new Error(`Post with id ${id} not found`);
-    }
+  const index = posts.findIndex(post => post.id === Number(id));
+  if (index !== -1) {
+    posts.splice(index, 1);
+    localStorage.setItem('posts', JSON.stringify(posts));
+    localStorage.removeItem(id);
   }
-  
-  const posts = JSON.parse(localStorage.getItem('posts'));
-
-
-try {
-  deletePostById(posts, 123); // Delete post with id 123
-  localStorage.setItem('posts', JSON.stringify(posts)); // Save updated posts to local storage
-} catch (error) {
-  console.error(error); // Log the error message
 }
+
+// const posts = JSON.parse(localStorage.getItem('posts'));
+
+
+// try {
+//   deletePostById(posts, 2); // Delete post with id 123
+//   localStorage.setItem('posts', JSON.stringify(posts)); // Save updated posts to local storage
+// } catch (error) {
+//   console.error(error); // Log the error message
+// }

@@ -1,6 +1,6 @@
 function generatePostHtml(post) {
-    return `
-      <div class="card right" style="width: 18rem;">
+  return `
+      <div class="card right" id="${post.id}"style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">${post.name}</h5>
           <h6 class="card-subtitle mb-2 text-muted">${post.date}</h6>
@@ -21,6 +21,6 @@ let localPosts = JSON.parse(localStorage.getItem('posts')) || [];
 
 
 localPosts.forEach(post => {
-    let postHtml = generatePostHtml(post);
-    container.insertAdjacentHTML('beforeend', postHtml);
+  let postHtml = generatePostHtml(post);
+  container.insertAdjacentHTML('beforeend', postHtml);
 });
