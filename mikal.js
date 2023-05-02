@@ -9,7 +9,7 @@ function generatePostHtml(post) {
           <span class="tags">${post.tags}</span>
           <div>
               <a href="#" class="card-link">Update</a>
-            <a href="#" class="card-link" id="delete-btn">Delete</a>
+            <a href="#" class="delete-btn">Delete</a>
             </div>
         </div>
       </div>
