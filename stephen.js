@@ -27,6 +27,10 @@ let addPost = (name, post, tags) => {
   localStorage.setItem('posts', JSON.stringify(localPosts));
 }
 
+// let deletePost = (id) => {
+
+// }
+
 // submitButton.addEventListener('click', event => {
 //   event.preventDefault();
 //   let name = document.querySelector('#name').value;
