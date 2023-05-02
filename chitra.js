@@ -5,11 +5,13 @@
 deletePostButtons.forEach(function(button) {
   button.addEventListener('click', function() {
     // get the post element that contains the delete button
-    const post = button.parentElement;
+    const post = button.parentElement.parentElement.parentElement;
+    console.log(post)
     // remove the post element from the DOM
     post.remove();
   });
 });
+
 
 function deletePostById(posts, id) {
 
