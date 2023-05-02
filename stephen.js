@@ -15,7 +15,7 @@ let addPost = (name, post, tags) => {
   let localPosts = JSON.parse(localStorage.getItem('posts'));
 
   let postObj = {
-    id: localPosts.length ? localPosts.length + 1 : 1,
+    id: Date.now(),
     name: name,
     post: post,
     tags: tags,
@@ -27,23 +27,6 @@ let addPost = (name, post, tags) => {
   localStorage.setItem('posts', JSON.stringify(localPosts));
 }
 
-// let deletePost = (id) => {
-
-// }
-
-// submitButton.addEventListener('click', event => {
-//   event.preventDefault();
-//   let name = document.querySelector('#name').value;
-//   let post = document.querySelector('#message-area').value;
-//   let tags = document.querySelector('#tags').value;
-
-//   if (name === '' || post === '' || tags === '') {
-
-//   }
-
-//   addPost(name, post, tags);
-//   form.reset();
-// });
 
 $(document).ready(() => {
   $('#submit').click((event) => {
@@ -76,8 +59,3 @@ $(document).ready(() => {
 });
 
 initializeCart();
-
-// console.log(new Date().toDateString());
-
-// addPost('Stephen', 'Here is a new post', ['food', 'newbie']);
-// addPost('Mikal', 'My post', ['gamer', 'android']);
