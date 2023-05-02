@@ -14,14 +14,14 @@ let postManager = (function () {
 
         for (let i = 0; i < posts.length; i++) {
             let postItem = document.createElement("???"); //creates a new ??? element
-            postItem.textContent = tasks[i]; //sets the text content to the task
-            postItem.addEventListener("click", function () { //click event listener to remove task when clicked
-                tasks.splice(i, 1); //removes the post from the posts array
-                displayTasks(); //call to update the list after task is removed
+            postItem.textContent = posts[i]; //sets the text content to the post
+            postItem.addEventListener("click", function () { //click event listener to remove post when clicked??????
+                posts.splice(i, 1); //removes the post from the posts array
+                displayPosts(); //call to update the list after post is removed
                 localStorage.setItem('posts', JSON.stringify(posts)); //stores updated posts array in local storage
 
             });
-            postList.appendChild(postItem); //appends the list item to the unordered list
+            postList.appendChild(postItem); //appends the ??? item to the ???
             console.log(postItem.textContent);
         }
     }
