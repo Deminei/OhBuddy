@@ -64,7 +64,6 @@ $(document).ready(() => {
 
     if (!$('label').hasClass('text-danger')) {
       addPost(name.val(), post.val(), tags.val());
-      const remainingChars = textarea.attr('maxlength') - textarea.val().length;
       charCount.textContent = `100 characters remaining`;
       form.reset();
     }
