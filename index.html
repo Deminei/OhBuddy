@@ -14,15 +14,11 @@
 </head>
 
 <body>
-  <!--  -->
-  <!--  -->
-  <!-- WORK BELOW HERE -->
-
-  <!-- NAV BAR -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
     <a class="navbar-brand" href="index.html">
       <!-- Insert logo image here -->
-      TECHNOMANCERS</a>
+      TECHNOMANCERS
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
       aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -31,32 +27,26 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-          <a class="nav-link" href="index.html">Home <span class="sr-only"></span></a>
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
         </li>
       </ul>
-    </div>
-    <div>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2 search-input" type="search" placeholder="Search" />
+      <form class="form-inline my-2 my-lg-0" style="margin-left: 5px;">
+        <input class="form-control mr-sm-2 search-input" type="search" placeholder="Search" aria-label="Search" />
         <button class="btn btn-outline-primary my-2 my-sm-0 clear-btn" type="submit">
-          Clear
+          Search
         </button>
-
       </form>
     </div>
   </nav>
-
-  <!-- END OF NAVBAR -->
-
-  <!-- BODY -->
-
+  <!--  -->
+  <!--  -->
+  <!-- WORK BELOW HERE -->
+  <!-- MAIN -->
   <!-- container -->
   <div class="container">
-    <!-- Error message -->
     <!-- form to create -->
     <div class="card left" style="width: 18rem">
       <div class="card-body">
-        <p id="error-message"></p>
         <form id="form" name="form">
           <h3>Create Post:</h3>
           <p id="message"></p>
@@ -66,13 +56,11 @@
           <br />
 
           <label>Post:</label>
-          <textarea id="message-area" placeholder="Your thoughts here :" maxlength="100"></textarea>
-          <div id="charCount">100 characters remaining</div>
+          <textarea id="message-area" placeholder="Your thoughts here :"></textarea>
           <br />
           <label for="tags">Tags:</label>
           <input id="tags" placeholder="" type="text" />
           <input id="submit" type="button" value="Send It!" />
-
         </form>
       </div>
     </div>
@@ -98,18 +86,9 @@
     </div>
   </div>
 
-
-
-
-
-
-
-
-
-
-  <!-- END OF BODY -->
+  <!-- END OF MAIN -->
   <!-- Footer -->
-  <footer class="text-center text-light fixed-bottom" style="background-color: #eae0d5">
+  <footer>
     <!-- Grid container -->
     <div class="container pt-2">
       <!-- Section: Social media -->
@@ -124,11 +103,11 @@
     </div>
     <!-- Copyright -->
   </footer>
-
   <!-- WORK ABOVE HERE -->
   <!--  -->
   <!--  -->
   <!-- JavaScript -->
+  <!-- Include jQuery from Google CDN -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="mikal.js"></script>
   <script src="stephen.js"></script>

@@ -1,15 +1,16 @@
 function generatePostHtml(post) {
-    let tagsHtml = post.tags.split(',').map(tag => `<span class="badge badge-secondary">${tag.trim()}</span>`).join('');
     return `
       <div class="card right" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">${post.name}</h5>
           <h6 class="card-subtitle mb-2 text-muted">${post.date}</h6>
           <p class="card-text">${post.post}</p>
-          <label for="">Tags</label>
-          <span class="tags">${tagsHtml}</span>
-          <a href="#" class="card-link">Update</a>
-          <a href="#" class="card-link">Delete</a>
+          <label for="">Tags: </label>
+          <span class="tags">${post.tags}</span>
+          <div>
+              <a href="#" class="card-link">Update</a>
+            <a href="#" class="delete-btn">Delete</a>
+            </div>
         </div>
       </div>
     `;
@@ -17,6 +18,7 @@ function generatePostHtml(post) {
 
 let container = document.querySelector('#posts-container');
 let localPosts = JSON.parse(localStorage.getItem('posts')) || [];
+
 
 localPosts.forEach(post => {
     let postHtml = generatePostHtml(post);
