@@ -1,6 +1,5 @@
 const submitButton = document.querySelector('#submit');
 const form = document.querySelector('#form');
-let nextId = 1;
 
 function initializeCart() {
   let posts = JSON.parse(localStorage.getItem('posts'));
@@ -15,7 +14,7 @@ let addPost = (name, post, tags) => {
   let localPosts = JSON.parse(localStorage.getItem('posts'));
 
   let postObj = {
-    id: nextId,
+    id: localPosts.length ? 0 : localPosts.length + 1,
     name: name,
     post: post,
     tags: tags,
@@ -25,8 +24,6 @@ let addPost = (name, post, tags) => {
   localPosts.push(postObj);
 
   localStorage.setItem('posts', JSON.stringify(localPosts));
-
-  nextId++;
 }
 
 submitButton.addEventListener('click', event => {
@@ -38,6 +35,8 @@ submitButton.addEventListener('click', event => {
   addPost(name, post, tags);
   form.reset();
 });
+
+initializeCart();
 
 // console.log(new Date().toDateString());
 
