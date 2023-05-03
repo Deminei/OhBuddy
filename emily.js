@@ -1,21 +1,22 @@
 // SEARCH FUNCTIONALITY
 
-function searchPosts(event) {
-  event.preventDefault();
+function searchPosts() {
+  // event.preventDefault();
 
-  let keyword = document.getElementsByClassName("search-input").value;
-  let current_posts = JSON.parse(localStorage.getItem("post"));
+  let keyword = document.getElementsByClassName(".search-input")[0].value;
+  let taggedPosts = JSON.parse(localStorage.getItem("posts"));
 
   if (keyword && keyword.length > 0) {
     keyword = keyword.toLowerCase();
-    let post = current_posts.filter((current_post) => current_post.tags === keyword);
+    let post = taggedPosts.filter(
+      (taggedPost) => taggedPost.tags === keyword
+    );
+console.log(post)
     return post;
-  } 
-  else {
+  } else {
     alert("No results found. Try another tag!");
   }
 }
 
-
-let searchButton = document.getElementsByClassName("clear-btn")[0];
+let searchButton = document.getElementsByClassName("search-btn")[0];
 searchButton.addEventListener("click", searchPosts);
