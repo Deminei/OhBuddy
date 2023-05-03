@@ -16,11 +16,10 @@ function generatePostHtml(post) {
     `;
 }
 
-let container = document.querySelector('#posts-container');
-let localPosts = JSON.parse(localStorage.getItem('posts')) || [];
+let container = document.querySelector("#posts-container");
+let localPosts = JSON.parse(localStorage.getItem("posts")) || [];
 
-
-localPosts.forEach(post => {
+localPosts.forEach((post) => {
   let postHtml = generatePostHtml(post);
-  container.insertAdjacentHTML('beforeend', postHtml);
+  container.insertAdjacentHTML("beforeend", postHtml);
 });
