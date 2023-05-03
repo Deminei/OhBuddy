@@ -41,24 +41,21 @@
   <!-- container -->
   <div class="container">
     <!-- form to create -->
-    <div class="card left" style="width: 18rem">
+    <div class="card post-card mw-100">
       <div class="card-body">
         <p id="error-message"></p>
         <form id="form" name="form">
           <h3>Create Post:</h3>
           <p id="message"></p>
           <label>Username:</label>
-          <input id="name" placeholder="Name" type="text" /><br />
-
-          <br />
-
-          <label>Post:</label>
-          <textarea id="message-area" placeholder="Your thoughts here : " maxlength="50"></textarea>
+          <input id="name" placeholder="Name" type="text" />
+          </form>
+          <textarea id="message-area" class="mw-100" placeholder="Your thoughts here : " maxlength="50"></textarea>
           <div id="charCount">50 characters remaining</div>
           <br />
           <label for="tags">Tags:</label>
           <input id="tags" placeholder="" type="text" />
-          <input id="submit" type="button" value="Send It!" />
+          <input id="submit" type="button" value="Send It!"/>
         </form>
       </div>
     </div>
@@ -66,16 +63,16 @@
     <!-- post feed -->
     <div class="post-list d-flex flex-column-reverse" id="posts-container">
       <!-- POST SAMPLE -->
-      <div class="card right" style="width: 18rem">
+      <div class="card">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <h6 class="card-subtitle mb-2 text-muted"><sub>Card subtitle</sub></h6>
           <p class="card-text">
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </p>
-          <label for="">Tags</label>
-          <span class="tags"></span>
+          <label for="">Tags: </label>
+          <a href="#" class="tags"></a>
           <div>
           <a href="#" class="card-link update-btn" data-post-id="${postObj.id}">Update</a>
           <a href="#" class="card-link delete-btn">Delete</a>
