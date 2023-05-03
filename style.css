@@ -1,42 +1,39 @@
 .container {
-  padding-top: 100px;
-  display: flexbox;
-  align-content: center;
-  justify-content: space-evenly;
-}
-.nav {
+    padding-top: 100px;
     display: flexbox;
+    align-content: center;
+    justify-content: space-evenly;
 }
-.nav .form{
-    display: flex;
-    align-self: flex-end;
-}
+
 .footer {
-  margin-top: 5px;
-  text-align: center;
-  background-color: #eae0d5"
+    margin-top: 5px;
+    text-align: center;
+    background-color: #eae0d5"
 
 }
+
 .card {
-  max-width: 400px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .card-header {
-  font-size: 24px;
-  margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
+
 .cardleft {
     display: flex;
     align-self: first baseline;
 }
+
 .card-body {
-  font-size: 16px;
-  margin-bottom: 5px;
+    font-size: 16px;
+    margin-bottom: 5px;
 }
