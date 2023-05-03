@@ -51,11 +51,10 @@ updateButtons.forEach((button) => {
     saveButton.setAttribute('type', 'button');
     saveButton.textContent = 'Save';
     saveButton.classList.add('btn', 'btn-primary');
-    const buttonContainer = document.createElement('div');
-    buttonContainer.classList.add('mt-2');
-    buttonContainer.appendChild(saveButton);
-    form.appendChild(buttonContainer);
-
+    
+    // insert the save button after the postElement
+    postElement.appendChild(saveButton);
+    
     // replace the post title, subtitle, and content with the form
     titleElement.replaceWith(form);
     subtitleElement.replaceWith(subtitleInput);
@@ -84,9 +83,15 @@ updateButtons.forEach((button) => {
         posts[postIndex].content = newContent;
         localStorage.setItem('posts', JSON.stringify(posts));
       }
+      
+      // remove the event listener from the save button
+      saveButton.removeEventListener('click', () => {});
+
+      // remove the save button from the DOM
+      saveButton.remove();
+
       // replace the form with the updated post title, subtitle, and content
       form.replaceWith(titleElement);
     });
   });
 });
-
