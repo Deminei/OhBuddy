@@ -35,4 +35,4 @@ function generatePostHtml(post) {
 
   let postHtml = generatePostHtml(post);
   container.insertAdjacentHTML("beforeend", postHtml);
-});
+
