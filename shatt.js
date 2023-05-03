@@ -24,6 +24,7 @@ updateButtons.forEach((button) => {
     const currentTitle = titleElement.textContent;
     const currentSubtitle = subtitleElement.textContent;
     const currentContent = contentElement.textContent;
+    const currentTags = tagsElement.textContent;
 
     // create a form element to allow the user to edit the post
     const form = document.createElement('form');
@@ -50,6 +51,13 @@ updateButtons.forEach((button) => {
     contentInput.classList.add('form-control');
     form.appendChild(contentInput);
 
+    const tagsInput = document.createElement('input');
+    tagsInput.setAttribute('type', 'text');
+    tagsInput.setAttribute('placeholder', 'Tags');
+    tagsInput.setAttribute('value', currentTags);
+    tagsInput.classList.add('form-control');
+    form.appendChild(tagsInput);
+
     // create a save button to allow the user to save their changes
     const saveButton = document.createElement('button');
     saveButton.setAttribute('type', 'button');
@@ -63,6 +71,7 @@ updateButtons.forEach((button) => {
     titleElement.replaceWith(form);
     subtitleElement.replaceWith(subtitleInput);
     contentElement.replaceWith(contentInput);
+    tagsElement.replaceWith(tagsInput);
 
     // add an event listener to the save button
     saveButton.addEventListener('click', () => {
@@ -70,6 +79,7 @@ updateButtons.forEach((button) => {
       const newTitle = titleInput.value;
       const newSubtitle = subtitleInput.value;
       const newContent = contentInput.value;
+      const newTags = tagsInput.value;
 
       // update the post title, subtitle, and content elements with the new values
       titleElement.textContent = newTitle;
@@ -77,6 +87,8 @@ updateButtons.forEach((button) => {
       subtitleElement.textContent = newSubtitle;
       contentInput.replaceWith(contentElement);
       contentElement.textContent = newContent;
+      tagsInput.replaceWith(tagsElement);
+      tagsElement.textContent = newTags;
 
       // update the post object in local storage with the new values
       let posts = JSON.parse(localStorage.getItem('posts'));
@@ -86,6 +98,7 @@ updateButtons.forEach((button) => {
         posts[postIndex].name = newTitle;
         // posts[postIndex].subtitle = newSubtitle;
         posts[postIndex].post = newContent;
+        posts[postIndex].tags = newTags;
         localStorage.setItem('posts', JSON.stringify(posts));
       }
 
