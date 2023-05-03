@@ -6,7 +6,10 @@ updateButtons.forEach((button) => {
   button.addEventListener('click', (event) => {
     event.preventDefault();
     // get the post ID from the data attribute
-    const postId = button.getAttribute('data-post-id');
+    // const postId = button.getAttribute('data-post-id');
+    const post = button.parentElement.parentElement.parentElement;
+
+    const postId = post.id;
 
     // get the post element for the current button
     const postElement = button.closest('.card');
@@ -52,10 +55,10 @@ updateButtons.forEach((button) => {
     saveButton.setAttribute('type', 'button');
     saveButton.textContent = 'Save';
     saveButton.classList.add('btn', 'btn-primary');
-    
+
     // insert the save button after the postElement
     postElement.appendChild(saveButton);
-    
+
     // replace the post title, subtitle, and content with the form
     titleElement.replaceWith(form);
     subtitleElement.replaceWith(subtitleInput);
@@ -77,16 +80,17 @@ updateButtons.forEach((button) => {
 
       // update the post object in local storage with the new values
       let posts = JSON.parse(localStorage.getItem('posts'));
-      const postIndex = posts.findIndex((post) => post.id === postId);
+      const postIndex = posts.findIndex((post) => post.id === Number(postId));
+
       if (postIndex !== -1) {
-        posts[postIndex].title = newTitle;
-        posts[postIndex].subtitle = newSubtitle;
-        posts[postIndex].content = newContent;
+        posts[postIndex].name = newTitle;
+        // posts[postIndex].subtitle = newSubtitle;
+        posts[postIndex].post = newContent;
         localStorage.setItem('posts', JSON.stringify(posts));
       }
-      
+
       // remove the event listener from the save button
-      saveButton.removeEventListener('click', () => {});
+      saveButton.removeEventListener('click', () => { });
 
       // remove the save button from the DOM
       saveButton.remove();
