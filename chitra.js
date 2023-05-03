@@ -1,10 +1,11 @@
 
 const deletePostButtons = document.querySelectorAll('.delete-btn');
+const posts = JSON.parse(localStorage.getItem('posts'));
 
 // add event listener to each delete button
 deletePostButtons.forEach(function (button, index) {
-  const posts = JSON.parse(localStorage.getItem('posts'));
-  button.addEventListener('click', function () {
+  button.addEventListener('click', function (event) {
+    event.preventDefault();
     // get the post element that contains the delete button
     const post = button.parentElement.parentElement.parentElement;
 
