@@ -10,19 +10,22 @@ updateButtons.forEach((button) => {
     // get the post element for the current button
     const postElement = button.closest('.card');
 
-    // get the post title and content elements
+    // get the post title, subtitle, and content elements
     const titleElement = postElement.querySelector('.card-title');
+    const subtitleElement = postElement.querySelector('.card-subtitle');
     const contentElement = postElement.querySelector('.card-text');
+    const tagsElement = postElement.querySelector('.tags');
 
-    // get the current title and content values
+    // get the current title, subtitle, and content values
     const currentTitle = titleElement.textContent;
+    const currentSubtitle = subtitleElement.textContent;
     const currentContent = contentElement.textContent;
 
     // create a form element to allow the user to edit the post
     const form = document.createElement('form');
     form.classList.add('update-form');
 
-    // create input fields for the title and content
+    // create input fields for the title, subtitle, and content
     const titleInput = document.createElement('input');
     titleInput.setAttribute('type', 'text');
     titleInput.setAttribute('placeholder', 'Title');
@@ -30,31 +33,45 @@ updateButtons.forEach((button) => {
     titleInput.classList.add('form-control');
     form.appendChild(titleInput);
 
+    const subtitleInput = document.createElement('input');
+    subtitleInput.setAttribute('type', 'text');
+    subtitleInput.setAttribute('placeholder', 'Subtitle');
+    subtitleInput.setAttribute('value', currentSubtitle);
+    subtitleInput.classList.add('form-control');
+    form.appendChild(subtitleInput);
+
     const contentInput = document.createElement('textarea');
     contentInput.setAttribute('placeholder', 'Content');
     contentInput.textContent = currentContent;
     contentInput.classList.add('form-control');
     form.appendChild(contentInput);
 
-    // replace the post title and content with the form
-    titleElement.replaceWith(form);
-    contentElement.replaceWith(contentInput);
-
     // create a save button to allow the user to save their changes
     const saveButton = document.createElement('button');
     saveButton.setAttribute('type', 'button');
     saveButton.textContent = 'Save';
     saveButton.classList.add('btn', 'btn-primary');
-    form.appendChild(saveButton);
+    const buttonContainer = document.createElement('div');
+    buttonContainer.classList.add('mt-2');
+    buttonContainer.appendChild(saveButton);
+    form.appendChild(buttonContainer);
+
+    // replace the post title, subtitle, and content with the form
+    titleElement.replaceWith(form);
+    subtitleElement.replaceWith(subtitleInput);
+    contentElement.replaceWith(contentInput);
 
     // add an event listener to the save button
     saveButton.addEventListener('click', () => {
-      // get the new title and content values
+      // get the new title, subtitle, and content values
       const newTitle = titleInput.value;
+      const newSubtitle = subtitleInput.value;
       const newContent = contentInput.value;
 
-      // update the post title and content elements with the new values
+      // update the post title, subtitle, and content elements with the new values
       titleElement.textContent = newTitle;
+      subtitleInput.replaceWith(subtitleElement);
+      subtitleElement.textContent = newSubtitle;
       contentInput.replaceWith(contentElement);
       contentElement.textContent = newContent;
 
@@ -63,11 +80,11 @@ updateButtons.forEach((button) => {
       const postIndex = posts.findIndex((post) => post.id === postId);
       if (postIndex !== -1) {
         posts[postIndex].title = newTitle;
+        posts[postIndex].subtitle = newSubtitle;
         posts[postIndex].content = newContent;
         localStorage.setItem('posts', JSON.stringify(posts));
       }
-
-      // replace the form with the updated post title and content
+      // replace the form with the updated post title, subtitle, and content
       form.replaceWith(titleElement);
     });
   });
