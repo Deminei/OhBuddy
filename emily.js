@@ -30,37 +30,41 @@ function generatePostHtml(post) {
     ;
 }
 
+const input = document.querySelector(".search-input");
+
 function searchPost() {
   const posts = JSON.parse(localStorage.getItem("posts"));
   const searchInput = document
     .querySelector(".search-input")
     .value.toLowerCase();
 
-  //manipulate HTML to show only the cards with the tags searched
-  // let feed = document.querySelector(".post-list").children; //pulls array of all objects
-  // let postsArray = Array.from(feed);
-  // let taggedPosts = postsArray.filter(
-  //   (post) => post.children[0].children[4].textContent === searchInput
-  // );
+  if (searchInput.trim() === '') {
+    // if search input is empty, reload all posts
+    let postHtml = "";
+    let div = document.querySelector("#posts-container");
+    div.textContent = "";
+    posts.forEach((post) => {
+      postHtml += generatePostHtml(post);
+    });
+    div.insertAdjacentHTML('beforeend', postHtml);
+    return;
+  }
 
   let postsObjects = posts.filter(post => post.tags.includes(searchInput));
 
   let postHtml = "";
   let div = document.querySelector("#posts-container");
   div.textContent = "";
-  // div.innerHTML = "";
   postsObjects.forEach((post) => {
     postHtml += generatePostHtml(post);
   });
-
-  // div.innerHTML = postHtml;
-
   div.insertAdjacentHTML('beforeend', postHtml);
   console.log(postsObjects);
 }
 
-const searchBtn = document.querySelector(".search-btn");
-searchBtn.addEventListener("click", event => {
+
+// const searchBtn = document.querySelector(".search-btn");
+input.addEventListener("input", event => {
   event.preventDefault();
   searchPost();
 });
