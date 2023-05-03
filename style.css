@@ -5,7 +5,7 @@ body {
     text-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .container {
-    padding-top: 100px;
+    padding-top: 5rem;
     align-content: center;
     width:fit-content;
     justify-content: space-evenly;
