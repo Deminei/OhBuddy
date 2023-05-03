@@ -8,15 +8,23 @@
   <!-- Link to Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous" />
-  <title>Technomancers CRUD</title>
+  <title>Oh Buddy</title>
+  <link rel="icon" type="image/x-icon" href="images/icons8-message-bot-neon-16.png" />
   <!-- link to stylesheet -->
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      opacity: 0;
+      transition: opacity 1.5s;
+    }
+  </style>
 </head>
 
-<body>
+<body onload="document.body.style.opacity='1'">
   <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">TECHNOMANCERS</a>
+      <a class="navbar-brand" href="index.html"><img class="logo" src="images/icons8-message-bot-neon-96.png"
+          alt="Buddy bot" width="50" height="50" /> Oh Buddy!</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -41,20 +49,17 @@
   <!-- container -->
   <div class="container">
     <!-- form to create -->
-    <div class="card left" style="width: 18rem">
+    <div class="card post-card">
       <div class="card-body">
         <p id="error-message"></p>
         <form id="form" name="form">
           <h3>Create Post:</h3>
           <p id="message"></p>
           <label>Username:</label>
-          <input id="name" placeholder="Name" type="text" /><br />
-
-          <br />
-
-          <label>Post:</label>
-          <textarea id="message-area" placeholder="Your thoughts here : " maxlength="50"></textarea>
-          <div id="charCount">50 characters remaining</div>
+          <input id="name" placeholder="Name" type="text" />
+          <label>Message:</label>
+          <textarea id="message-area" class="mw-100" placeholder="Your thoughts here : " maxlength="200"></textarea>
+          <div id="charCount">200 characters remaining</div>
           <br />
           <label for="tags">Tags:</label>
           <input id="tags" placeholder="" type="text" />
@@ -66,20 +71,20 @@
     <!-- post feed -->
     <div class="post-list d-flex flex-column-reverse" id="posts-container">
       <!-- POST SAMPLE -->
-      <div class="card right" style="width: 18rem">
+      <div class="card">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <h6 class="card-subtitle mb-2 text-muted"><sub>Card subtitle</sub></h6>
           <p class="card-text">
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </p>
-          <label for="">Tags</label>
-          <span class="tags"></span>
+          <label for="">Tags: </label>
+          <a href="#" class="tags"></a>
           <div>
-          <a href="#" class="card-link update-btn" data-post-id="${postObj.id}">Update</a>
-          <a href="#" class="card-link delete-btn">Delete</a>
-        </div>
+            <a href="#" class="card-link update-btn" data-post-id="${postObj.id}">Update</a>
+            <a href="#" class="card-link delete-btn">Delete</a>
+          </div>
         </div>
       </div>
       <!-- END OF POST SAMPLE -->
@@ -97,9 +102,8 @@
     </div>
 
     <!-- Copyright -->
-    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-      TECHNOMANCERS © 2020 Copyright:
-      <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    <div class="footer text-center text-dark p-3" style="background-color: #f5f8f8">
+      <img class="logo" src="images/icons8-message-bot-neon-32.png" alt="Buddy bot" /> OhBuddy © 2020
     </div>
     <!-- Copyright -->
   </footer>
