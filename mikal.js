@@ -33,6 +33,13 @@ function generatePostHtml(post) {
     `;
 }
 
-  let postHtml = generatePostHtml(post);
-  container.insertAdjacentHTML("beforeend", postHtml);
+//gets the container element to display the posts
+let container = document.querySelector('#posts-container');
+//gest the posts data from local storage or use an empty array if no data is present
+let localPosts = JSON.parse(localStorage.getItem('posts')) || [];
 
+//loops through the localPosts array and add each post's HTML to the container
+localPosts.forEach(post => {
+  let postHtml = generatePostHtml(post);
+  container.insertAdjacentHTML('beforeend', postHtml);
+});
