@@ -40,14 +40,19 @@ $(document).ready(() => {
       if (element.val() === "") {
         $('#error-message').html('Please Fill Out Required Fields').addClass('text-danger');
         $('label').eq(required.indexOf(element)).addClass('text-danger');
+        element.addClass('border');
+        element.addClass('border-danger');
       } else {
         $('label').eq(required.indexOf(element)).removeClass('text-danger');
+        element.removeClass('border');
+        element.removeClass('border-danger');
       }
     });
 
-    if (!$('label').hasClass('text-danger')) {
+    if (!$('label').hasClass('text-danger') && !$('label').hasClass('border-danger')) {
       addPost(name.val(), post.val(), tags.val());
       charCount.textContent = `200 characters remaining`;
+      $('#error-message').html('');
       form.reset();
     }
   });
