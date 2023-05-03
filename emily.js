@@ -31,7 +31,9 @@ function searchPost() {
   );
 
   let postHtml = "";
-  taggedPosts.forEach((post) => {postHtml += generatePostHtml(post);});
+  taggedPosts.forEach((post) => {
+    postHtml += generatePostHtml(post);
+  });
 
   let div = document.querySelector(".post-list");
   div.innerHTML = postHtml;
