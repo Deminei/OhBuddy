@@ -43,6 +43,7 @@
     <!-- form to create -->
     <div class="card left" style="width: 18rem">
       <div class="card-body">
+        <p id="error-message"></p>
         <form id="form" name="form">
           <h3>Create Post:</h3>
           <p id="message"></p>
@@ -52,8 +53,8 @@
           <br />
 
           <label>Post:</label>
-          <textarea id="message-area" placeholder="Your thoughts here : " maxlength="100"></textarea>
-          <div id="charCount">100 characters remaining</div>
+          <textarea id="message-area" placeholder="Your thoughts here : " maxlength="50"></textarea>
+          <div id="charCount">50 characters remaining</div>
           <br />
           <label for="tags">Tags:</label>
           <input id="tags" placeholder="" type="text" />
@@ -75,10 +76,8 @@
           </p>
           <label for="">Tags</label>
           <span class="tags"></span>
-          <div>
-            <a href="#" class="card-link">Update</a>
-            <a href="#" class="card-link delete-btn">Delete</a>
-          </div>
+          <a href="#" class="card-link update-btn" data-post-id="${postObj.id}">Update</a>
+          <a href="#" class="card-link delete-btn">Delete</a>
         </div>
       </div>
       <!-- END OF POST SAMPLE -->

@@ -1,18 +1,92 @@
-function updatePost(postId, updatedName, updatedPost, updatedTags) {
-    let localPosts = JSON.parse(localStorage.getItem('posts'));
-  
-    const updatedPosts = localPosts.map(post => {
-      if (!postId || post.id === postId) {
-        return {
-          ...post,
-          name: updatedName,
-          post: updatedPost,
-          tags: updatedTags,
-        };
-      } else {
-        return post;
+// get the update button elements
+const updateButtons = document.querySelectorAll('.update-btn');
+
+// loop through all update buttons and add an event listener for the click event
+updateButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    // get the post ID from the data attribute
+    const postId = button.getAttribute('data-post-id');
+
+    // get the post element for the current button
+    const postElement = button.closest('.card');
+
+    // get the post title, subtitle, and content elements
+    const titleElement = postElement.querySelector('.card-title');
+    const subtitleElement = postElement.querySelector('.card-subtitle');
+    const contentElement = postElement.querySelector('.card-text');
+    const tagsElement = postElement.querySelector('.tags');
+
+    // get the current title, subtitle, and content values
+    const currentTitle = titleElement.textContent;
+    const currentSubtitle = subtitleElement.textContent;
+    const currentContent = contentElement.textContent;
+
+    // create a form element to allow the user to edit the post
+    const form = document.createElement('form');
+    form.classList.add('update-form');
+
+    // create input fields for the title, subtitle, and content
+    const titleInput = document.createElement('input');
+    titleInput.setAttribute('type', 'text');
+    titleInput.setAttribute('placeholder', 'Title');
+    titleInput.setAttribute('value', currentTitle);
+    titleInput.classList.add('form-control');
+    form.appendChild(titleInput);
+
+    const subtitleInput = document.createElement('input');
+    subtitleInput.setAttribute('type', 'text');
+    subtitleInput.setAttribute('placeholder', 'Subtitle');
+    subtitleInput.setAttribute('value', currentSubtitle);
+    subtitleInput.classList.add('form-control');
+    form.appendChild(subtitleInput);
+
+    const contentInput = document.createElement('textarea');
+    contentInput.setAttribute('placeholder', 'Content');
+    contentInput.textContent = currentContent;
+    contentInput.classList.add('form-control');
+    form.appendChild(contentInput);
+
+    // create a save button to allow the user to save their changes
+    const saveButton = document.createElement('button');
+    saveButton.setAttribute('type', 'button');
+    saveButton.textContent = 'Save';
+    saveButton.classList.add('btn', 'btn-primary');
+    const buttonContainer = document.createElement('div');
+    buttonContainer.classList.add('mt-2');
+    buttonContainer.appendChild(saveButton);
+    form.appendChild(buttonContainer);
+
+    // replace the post title, subtitle, and content with the form
+    titleElement.replaceWith(form);
+    subtitleElement.replaceWith(subtitleInput);
+    contentElement.replaceWith(contentInput);
+
+    // add an event listener to the save button
+    saveButton.addEventListener('click', () => {
+      // get the new title, subtitle, and content values
+      const newTitle = titleInput.value;
+      const newSubtitle = subtitleInput.value;
+      const newContent = contentInput.value;
+
+      // update the post title, subtitle, and content elements with the new values
+      titleElement.textContent = newTitle;
+      subtitleInput.replaceWith(subtitleElement);
+      subtitleElement.textContent = newSubtitle;
+      contentInput.replaceWith(contentElement);
+      contentElement.textContent = newContent;
+
+      // update the post object in local storage with the new values
+      let posts = JSON.parse(localStorage.getItem('posts'));
+      const postIndex = posts.findIndex((post) => post.id === postId);
+      if (postIndex !== -1) {
+        posts[postIndex].title = newTitle;
+        posts[postIndex].subtitle = newSubtitle;
+        posts[postIndex].content = newContent;
+        localStorage.setItem('posts', JSON.stringify(posts));
       }
+      // replace the form with the updated post title, subtitle, and content
+      form.replaceWith(titleElement);
     });
-  
-    localStorage.setItem('posts', JSON.stringify(updatedPosts));
-  }
+  });
+});
+
