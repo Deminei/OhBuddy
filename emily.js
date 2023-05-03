@@ -59,7 +59,7 @@ function searchPost() {
     postHtml += generatePostHtml(post);
   });
   div.insertAdjacentHTML('beforeend', postHtml);
-  console.log(postsObjects);
+  // console.log(postsObjects);
 }
 
 
