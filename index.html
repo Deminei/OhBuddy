@@ -12,9 +12,15 @@
   <link rel="icon" type="image/x-icon" href="images/icons8-message-bot-neon-16.png" />
   <!-- link to stylesheet -->
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      opacity: 0;
+      transition: opacity 1.5s;
+    }
+  </style>
 </head>
 
-<body>
+<body onload="document.body.style.opacity='1'">
   <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html"><img
@@ -57,8 +63,8 @@
           <label>Username:</label>
           <input id="name" placeholder="Name" type="text" />
           </form>
-          <textarea id="message-area" class="mw-100" placeholder="Your thoughts here : " maxlength="50"></textarea>
-          <div id="charCount">50 characters remaining</div>
+          <textarea id="message-area" class="mw-100" placeholder="Your thoughts here : " maxlength="200"></textarea>
+          <div id="charCount">200 characters remaining</div>
           <br />
           <label for="tags">Tags:</label>
           <input id="tags" placeholder="" type="text" />
@@ -101,9 +107,12 @@
     </div>
 
     <!-- Copyright -->
-    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-      TECHNOMANCERS © 2020 Copyright:
-      <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    <div class="footer text-center text-dark p-3" style="background-color: #f5f8f8">
+      <img
+        class="logo"
+        src="images/icons8-message-bot-neon-32.png"
+        alt="Buddy bot"
+    /> OhBuddy © 2020
     </div>
     <!-- Copyright -->
   </footer>

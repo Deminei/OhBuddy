@@ -11,13 +11,6 @@ body {
     justify-content: space-evenly;
 }
 
-
-.footer {
-    margin-top: 5px;
-    text-align: center;
-    background-color: #eae0d5"
-
-}
 .card.post-card {
     width: 100%;
     max-width: 600px;
