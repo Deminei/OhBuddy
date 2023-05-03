@@ -3,7 +3,8 @@ const updateButtons = document.querySelectorAll('.update-btn');
 
 // loop through all update buttons and add an event listener for the click event
 updateButtons.forEach((button) => {
-  button.addEventListener('click', () => {
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
     // get the post ID from the data attribute
     const postId = button.getAttribute('data-post-id');
 
