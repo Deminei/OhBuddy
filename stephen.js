@@ -47,7 +47,7 @@ $(document).ready(() => {
 
     if (!$('label').hasClass('text-danger')) {
       addPost(name.val(), post.val(), tags.val());
-      charCount.textContent = `100 characters remaining`;
+      charCount.textContent = `50 characters remaining`;
       form.reset();
     }
   });
