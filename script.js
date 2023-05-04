@@ -218,7 +218,7 @@ function searchPost() {
     .querySelector(".search-input")
     .value.toLowerCase();
 
-  let postsObjects = searchPosts.filter(post => post.tags.includes(searchInput));
+  let postsObjects = searchPosts.filter(post => post.tags.toLowerCase().includes(searchInput));
 
   displayFilteredPosts(postsObjects)
 
